@@ -75,6 +75,15 @@ const NavItem = styled.li<{ active: boolean }>`
 	}
 `;
 
+const CodeBox = styled.div`
+	background: #1e1e1e;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+	margin: 20px 0;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+`;
+
 const MainColumn = styled.div`
 	flex: 1;
 	max-width: 850px;
@@ -94,13 +103,6 @@ const MainColumn = styled.div`
 	p { margin-bottom: 1.5rem; }
 	img { max-width: 100%; height: auto; border-radius: 12px; margin: 20px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
 	
-	div[class*="SyntaxHighlighter"] {
-		border-radius: 12px;
-		overflow: hidden;
-		box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
-		margin: 20px 0;
-	}
-
 	code {
 		background: rgba(0, 171, 174, 0.15);
 		padding: 2px 6px;
@@ -112,6 +114,7 @@ const MainColumn = styled.div`
 	pre {
 		background: none !important;
 		padding: 0 !important;
+		margin: 0 !important;
 	}
 
 	ul, ol {
@@ -169,6 +172,7 @@ const About = () => {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 	
 	useEffect(() => {
+		window.scrollTo(0, 0);
 		fetch('./write_up.md')
 			.then(res => res.text())
 			.then(text => {
@@ -245,14 +249,21 @@ const About = () => {
 						code({ node, inline, className, children, ...props }: any) {
 							const match = /language-(\w+)/.exec(className || '');
 							return !inline && match ? (
-								<SyntaxHighlighter
-									style={vscDarkPlus as any}
-									language={match[1]}
-									PreTag="div"
-									{...props}
-								>
-									{String(children).replace(/\n$/, '')}
-								</SyntaxHighlighter>
+								<CodeBox>
+									<SyntaxHighlighter
+										style={vscDarkPlus as any}
+										language={match[1]}
+										PreTag="div"
+										customStyle={{
+											background: 'transparent',
+											padding: '20px',
+											margin: 0
+										}}
+										{...props}
+									>
+										{String(children).replace(/\n$/, '')}
+									</SyntaxHighlighter>
+								</CodeBox>
 							) : (
 								<code className={className} {...props}>
 									{children}

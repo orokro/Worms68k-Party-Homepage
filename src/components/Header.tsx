@@ -33,29 +33,40 @@ const NavLinks = styled.nav`
 const HeaderLink = styled(NavLink)`
 	color: #fff;
 	font-weight: bold;
-	font-size: 1.2rem;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-	padding: 5px 10px;
-	border-radius: 4px;
-	transition: all 0.2s;
+	font-size: 1.1rem;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	padding: 8px 20px;
+	border-radius: 50px;
+	transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	background: rgba(0, 0, 0, 0.2);
+	box-shadow: 0 4px 0px rgba(0, 0, 0, 0.3);
 
 	&.active {
-		color: var(--primary);
-		background: rgba(0, 0, 0, 0.3);
+		color: #fff;
+		background: var(--primary);
+		box-shadow: 0 4px 0px #007a7c;
 	}
 
 	&:hover {
-		color: var(--secondary);
-		background: rgba(0, 0, 0, 0.2);
+		color: #fff;
+		background: var(--secondary);
+		transform: scale(1.05) rotate(-1deg);
+		box-shadow: 0 6px 0px #6a44b0;
+	}
+
+	&:active {
+		transform: translateY(2px);
+		box-shadow: 0 2px 0px #6a44b0;
 	}
 
 	@media (max-width: 768px) {
-		font-size: 0.9rem;
-		padding: 2px 5px;
+		font-size: 0.8rem;
+		padding: 4px 12px;
 	}
 	
 	@media (max-width: 480px) {
-		font-size: 0.7rem;
+		font-size: 0.6rem;
+		padding: 2px 8px;
 	}
 `;
 
