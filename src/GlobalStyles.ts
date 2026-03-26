@@ -38,6 +38,10 @@ export const GlobalStyles = createGlobalStyle`
 	code {
 		font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
 		tab-size: 4;
+	}
+
+	/* Only apply "inline" look to code tags that aren't in a pre block */
+	:not(pre) > code {
 		background: rgba(0, 171, 174, 0.15);
 		padding: 2px 6px;
 		border-radius: 4px;

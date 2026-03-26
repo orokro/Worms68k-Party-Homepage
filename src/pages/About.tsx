@@ -82,6 +82,14 @@ const CodeBox = styled.div`
 	box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
 	margin: 20px 0;
 	border: 1px solid rgba(255, 255, 255, 0.05);
+
+	code {
+		background: none !important;
+		padding: 0 !important;
+		border-radius: 0 !important;
+		color: inherit !important;
+		font-size: inherit !important;
+	}
 `;
 
 const MainColumn = styled.div`
@@ -103,7 +111,8 @@ const MainColumn = styled.div`
 	p { margin-bottom: 1.5rem; }
 	img { max-width: 100%; height: auto; border-radius: 12px; margin: 20px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
 	
-	code {
+	/* Target only inline code tags */
+	:not(pre) > code {
 		background: rgba(0, 171, 174, 0.15);
 		padding: 2px 6px;
 		border-radius: 4px;
