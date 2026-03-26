@@ -35,9 +35,13 @@ export const GlobalStyles = createGlobalStyle`
 		/* Use tabs for indentation where possible in CSS if outputting */
 	}
 
-	pre, code {
+	code {
 		font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
 		tab-size: 4;
+		background: rgba(0, 171, 174, 0.15);
+		padding: 2px 6px;
+		border-radius: 4px;
+		color: var(--primary);
 	}
 
 	/* Scrollbar styling */

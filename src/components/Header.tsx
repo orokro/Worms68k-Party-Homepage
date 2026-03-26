@@ -4,7 +4,7 @@ import { Github } from 'lucide-react';
 
 const HeaderWrapper = styled.header`
 	width: 100%;
-	max-width: 1200px;
+	max-width: 600px;
 	margin: 0 auto;
 	position: relative;
 	aspect-ratio: 1202 / 454;
@@ -109,7 +109,7 @@ const Header = () => {
 			</NavLinks>
 			<GithubLinkContainer>
 				<GithubIconLink 
-					href="https://github.com/worms68k-party/worms68k-party" 
+					href="https://github.com/orokro/Worms68k-Party" 
 					target="_blank" 
 					rel="noopener noreferrer"
 				>

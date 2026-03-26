@@ -60,7 +60,7 @@ const Home = () => {
 					</p>
 					<p>
 						With 77 unique weapons, textured gray-scale maps, and a robust physics engine, 
-						this is one of the most ambitious games ever developed for the TI-89 platform.
+						this is one helluva ambitious project I developed for the TI-89 platform.
 					</p>
 					<div style={{ marginTop: '20px', display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
 						<Link to="/about">
@@ -69,7 +69,7 @@ const Home = () => {
 							</Button>
 						</Link>
 						<Button 
-							href="https://github.com/worms68k-party/worms68k-party" 
+							href="https://github.com/orokro/Worms68k-Party" 
 							target="_blank" 
 							rel="noopener noreferrer"
 							style={{ backgroundColor: '#444' }}

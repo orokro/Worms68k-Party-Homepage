@@ -23,9 +23,10 @@ const Sidebar = styled.nav<{ isOpen: boolean }>`
 	height: calc(100vh - 40px);
 	overflow-y: auto;
 	background: var(--bg-lighter);
-	border: 1px solid var(--border);
-	border-radius: 8px;
+	border: none;
+	border-radius: 12px;
 	padding: 20px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 
 	@media (max-width: 900px) {
 		position: fixed;
@@ -78,10 +79,10 @@ const MainColumn = styled.div`
 	flex: 1;
 	max-width: 850px;
 	background: var(--bg-lighter);
-	border: 1px solid var(--border);
-	border-radius: 8px;
+	border: none;
+	border-radius: 12px;
 	padding: 40px;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 
 	@media (max-width: 600px) {
 		padding: 20px;
@@ -91,14 +92,21 @@ const MainColumn = styled.div`
 	h1 { color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 10px; margin-top: 40px; }
 	h2 { color: var(--secondary); border-bottom: 1px solid var(--border); padding-bottom: 5px; margin-top: 30px; }
 	p { margin-bottom: 1.5rem; }
-	img { max-width: 100%; height: auto; border-radius: 4px; margin: 20px 0; border: 1px solid var(--border); }
+	img { max-width: 100%; height: auto; border-radius: 12px; margin: 20px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
 	
+	div[class*="SyntaxHighlighter"] {
+		border-radius: 12px;
+		overflow: hidden;
+		box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+		margin: 20px 0;
+	}
+
 	code {
-		background: #2a2a2a;
+		background: rgba(0, 171, 174, 0.15);
 		padding: 2px 6px;
 		border-radius: 4px;
 		font-size: 0.9em;
-		color: #e6db74;
+		color: var(--primary);
 	}
 
 	pre {

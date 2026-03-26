@@ -2,26 +2,27 @@ import styled from 'styled-components';
 
 export const ContentBox = styled.div`
 	background-color: var(--bg-lighter);
-	border: 1px solid var(--border);
-	border-radius: 8px;
+	border: none;
+	border-radius: 12px;
 	margin-bottom: 30px;
 	overflow: hidden;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 `;
 
 export const BoxHeader = styled.div`
 	background-color: #2a2a2a;
-	padding: 12px 20px;
-	border-bottom: 1px solid var(--border);
+	padding: 15px 20px;
+	border-bottom: none;
 	font-weight: bold;
 	color: var(--primary);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	font-size: 1.1rem;
 `;
 
 export const BoxContent = styled.div`
-	padding: 20px;
+	padding: 25px;
 `;
 
 export const Button = styled.a`
@@ -30,17 +31,25 @@ export const Button = styled.a`
 	justify-content: center;
 	background-color: var(--primary);
 	color: #fff;
-	padding: 12px 24px;
-	border-radius: 6px;
+	padding: 14px 28px;
+	border-radius: 50px;
 	font-weight: bold;
-	transition: background-color 0.2s;
+	transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	border: none;
 	cursor: pointer;
 	text-decoration: none;
+	box-shadow: 0 4px 0px #007a7c;
 
 	&:hover {
 		background-color: var(--secondary);
 		color: #fff;
+		transform: scale(1.05) rotate(-1deg);
+		box-shadow: 0 6px 0px #6a44b0;
+	}
+
+	&:active {
+		transform: translateY(2px);
+		box-shadow: 0 2px 0px #6a44b0;
 	}
 `;
 

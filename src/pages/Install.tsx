@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { AlertTriangle, HardDrive, Cpu, Terminal } from 'lucide-react';
+import { AlertTriangle, HardDrive, Terminal } from 'lucide-react';
 import { 
 	ContentBox, 
 	BoxHeader, 
@@ -58,7 +58,7 @@ const Install = () => {
 					<p>Follow these steps to get Worms68k Party running on your TI-89 or TI-89 Titanium:</p>
 					<StepList>
 						<li><strong>Download and Extract:</strong> Download the <code>Worms68kParty.zip</code> and extract its contents to your computer.</li>
-						<li><strong>Check Memory:</strong> The game files (unzipped) require approximately <strong>130 KB</strong> of storage space. Ensure your calculator has enough Flash ROM and RAM available.</li>
+						<li><strong>Check Memory:</strong> The game files (unzipped) require approximately <strong>96 KB</strong> of storage space. Ensure your calculator has enough Flash ROM and RAM available.</li>
 						<li><strong>Setup Folder:</strong> On your TI-89, create a new folder called <code>worms</code> (Press <code>[2nd] [VAR-LINK]</code>, then <code>[F1]</code> {'->'} <code>5:Create Folder</code>).</li>
 						<li><strong>Set Directory:</strong> Set <code>worms</code> as your current directory (Type <code>setFold(worms)</code> on the home screen).</li>
 						<li><strong>Connect:</strong> Connect your TI-89 to your computer via USB (Titanium) or Silver Link / Black Link cable.</li>
@@ -84,8 +84,6 @@ const Install = () => {
 				</BoxHeader>
 				<BoxContent>
 					<p>If you aren't on Windows, you can use the excellent open-source <strong>TILP</strong> (TI Linking Program) to transfer files.</p>
-					
-					<h3 style={{ color: 'var(--secondary)', marginTop: '20px' }}>TILP II</h3>
 					<p>TILP is a cross-platform linking program that supports almost all TI calculators and link cables.</p>
 					
 					<LinkList>
@@ -94,17 +92,12 @@ const Install = () => {
 								Official TILP Website
 							</a>
 						</li>
-						<li>
-							<a href="https://github.com/debrouxl/tilp_and_gclibs" target="_blank" rel="noopener noreferrer">
-								TILP on GitHub
-							</a>
-						</li>
 					</LinkList>
 
 					<div style={{ marginTop: '20px', padding: '15px', background: '#222', borderRadius: '4px' }}>
 						<h4 style={{ margin: '0 0 10px 0' }}>💡 Pro Tip: Emulation</h4>
 						<p style={{ margin: 0, fontSize: '0.9rem' }}>
-							If you don't have a physical calculator, you can run Worms68k Party in an emulator like <strong>CEmu</strong> or <strong>TiEmu</strong>. Simply load a TI-89 ROM and drag the game files into the emulator window.
+							If you don't have a physical calculator, you can run Worms68k Party in an emulator like <a href="https://www.ticalc.org/archives/files/fileinfo/84/8442.html" target="_blank" rel="noopener noreferrer">Virtual TI</a> or <a href="https://sourceforge.net/projects/gtktiemu/" target="_blank" rel="noopener noreferrer">TiEmu</a>. Simply load a TI-89 ROM and drag the game files into the emulator window.
 						</p>
 					</div>
 				</BoxContent>
