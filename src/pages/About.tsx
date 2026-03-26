@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, BookOpen } from 'lucide-react';
 import StateMachine from '../components/StateMachine';
+import { BoxHeader, BoxContent } from '../components/Common';
 
 const AboutContainer = styled.div`
 	display: flex;
@@ -23,11 +24,13 @@ const Sidebar = styled.nav<{ isOpen: boolean }>`
 	top: 20px;
 	height: calc(100vh - 40px);
 	overflow-y: auto;
-	background: var(--bg-lighter);
-	border: none;
+	background: rgba(30, 30, 30, 0.7);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: 12px;
 	padding: 20px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
 	background: rgba(30, 30, 30, 0.7);
 	backdrop-filter: blur(5px);
 	
@@ -99,18 +102,22 @@ const MainColumn = styled.div`
 	flex: 1;
 	max-width: 850px;
 	background: rgba(30, 30, 30, 0.7);
-	backdrop-filter: blur(5px);
-	/* border: 1px solid rgba(255, 255, 255, 0.1); */
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: 12px;
-	padding: 40px;
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+	overflow: hidden;
+
+	background: rgba(30, 30, 30, 0.7);
+	backdrop-filter: blur(5px);
 
 	@media (max-width: 600px) {
-		padding: 20px;
+		/* padding moved to BoxContent */
 	}
 
 	/* Markdown styles */
 	h1 { color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 10px; margin-top: 40px; }
+	h1:first-child { margin-top: 0; }
 	h2 { color: var(--secondary); border-bottom: 1px solid var(--border); padding-bottom: 5px; margin-top: 30px; }
 	p { margin-bottom: 1.5rem; }
 	img { max-width: 100%; height: auto; border-radius: 12px; margin: 20px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
@@ -251,61 +258,67 @@ const About = () => {
 			</Sidebar>
 
 			<MainColumn>
-				<ReactMarkdown
-					rehypePlugins={[rehypeRaw]}
-					components={{
-						h1: ({ children }) => {
-							const text = String(children);
-							const id = text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
-							return <h1 id={id}>{children}</h1>;
-						},
-						img: ({ src, alt }) => {
-							if (src?.includes('state_machine')) {
-								return <StateMachine />;
-							}
-							return <img src={src} alt={alt} />;
-						},
-						code({ node, inline, className, children, ...props }: any) {
-							const match = /language-(\w+)/.exec(className || '');
-							return !inline && match ? (
-								<CodeBox>
-									<SyntaxHighlighter
-										style={vscDarkPlus as any}
-										language={match[1]}
-										PreTag="div"
-										customStyle={{
-											background: 'transparent',
-											padding: '20px',
-											margin: 0
-										}}
-										{...props}
+				<BoxHeader>
+					Project Write-up
+					<BookOpen size={20} />
+				</BoxHeader>
+				<BoxContent style={{ padding: '40px' }}>
+					<ReactMarkdown
+						rehypePlugins={[rehypeRaw]}
+						components={{
+							h1: ({ children }) => {
+								const text = String(children);
+								const id = text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+								return <h1 id={id}>{children}</h1>;
+							},
+							img: ({ src, alt }) => {
+								if (src?.includes('state_machine')) {
+									return <StateMachine />;
+								}
+								return <img src={src} alt={alt} />;
+							},
+							code({ node, inline, className, children, ...props }: any) {
+								const match = /language-(\w+)/.exec(className || '');
+								return !inline && match ? (
+									<CodeBox>
+										<SyntaxHighlighter
+											style={vscDarkPlus as any}
+											language={match[1]}
+											PreTag="div"
+											customStyle={{
+												background: 'transparent',
+												padding: '20px',
+												margin: 0
+											}}
+											{...props}
+										>
+											{String(children).replace(/\n$/, '')}
+										</SyntaxHighlighter>
+									</CodeBox>
+								) : (
+									<code className={className} {...props}>
+										{children}
+									</code>
+								);
+							},
+							// Ensure all external links open in new tab
+							a: ({ href, children }) => {
+								const isExternal = href?.startsWith('http');
+								return (
+									<a 
+										href={href} 
+										target={isExternal ? "_blank" : undefined} 
+										rel={isExternal ? "noopener noreferrer" : undefined}
 									>
-										{String(children).replace(/\n$/, '')}
-									</SyntaxHighlighter>
-								</CodeBox>
-							) : (
-								<code className={className} {...props}>
-									{children}
-								</code>
-							);
-						},
-						// Ensure all external links open in new tab
-						a: ({ href, children }) => {
-							const isExternal = href?.startsWith('http');
-							return (
-								<a 
-									href={href} 
-									target={isExternal ? "_blank" : undefined} 
-									rel={isExternal ? "noopener noreferrer" : undefined}
-								>
-									{children}
-								</a>
-							);
-						}
-					}}
-				>
-					{markdown}
-				</ReactMarkdown>
+										{children}
+									</a>
+								);
+							}
+						}}
+					>
+						{markdown}
+					</ReactMarkdown>
+				</BoxContent>
 			</MainColumn>
 
 			<MobileMenuBtn onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
