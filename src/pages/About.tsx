@@ -5,6 +5,7 @@ import rehypeRaw from 'rehype-raw';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Menu, X } from 'lucide-react';
+import StateMachine from '../components/StateMachine';
 
 const AboutContainer = styled.div`
 	display: flex;
@@ -254,6 +255,12 @@ const About = () => {
 							const text = String(children);
 							const id = text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
 							return <h1 id={id}>{children}</h1>;
+						},
+						img: ({ src, alt }) => {
+							if (src?.includes('state_machine')) {
+								return <StateMachine />;
+							}
+							return <img src={src} alt={alt} />;
 						},
 						code({ node, inline, className, children, ...props }: any) {
 							const match = /language-(\w+)/.exec(className || '');
