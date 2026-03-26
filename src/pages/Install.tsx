@@ -1,10 +1,12 @@
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { AlertTriangle, HardDrive, Terminal } from 'lucide-react';
+import { AlertTriangle, HardDrive, Terminal, Download } from 'lucide-react';
 import { 
 	ContentBox, 
 	BoxHeader, 
 	BoxContent, 
-	Disclaimer 
+	Disclaimer,
+	Button
 } from '../components/Common';
 
 const StepList = styled.ol`
@@ -42,6 +44,10 @@ const LinkList = styled.ul`
 `;
 
 const Install = () => {
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
+
 	return (
 		<div>
 			<WarningBox>
@@ -55,6 +61,14 @@ const Install = () => {
 					<HardDrive size={20} />
 				</BoxHeader>
 				<BoxContent>
+					<div style={{ textAlign: 'center', marginBottom: '30px', padding: '20px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px' }}>
+						<p style={{ fontSize: '1.1rem', marginBottom: '15px' }}>First, download the game package:</p>
+						<Button href="./assets/Worms68kParty.zip" download>
+							<Download size={20} style={{ marginRight: '10px' }} />
+							Download Worms68kParty.zip
+						</Button>
+					</div>
+
 					<p>Follow these steps to get Worms68k Party running on your TI-89 or TI-89 Titanium:</p>
 					<StepList>
 						<li><strong>Download and Extract:</strong> Download the <code>Worms68kParty.zip</code> and extract its contents to your computer.</li>
