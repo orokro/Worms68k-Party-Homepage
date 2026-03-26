@@ -170,7 +170,7 @@ const StateMachine = () => {
 					
 					{/* Choice -> PlaceWorms (Yes) */}
 					<path d="M 209.03 26.49 L 300.62 26.43" fill="none" stroke="#000000" strokeMiterlimit="10" marker-end="url(#arrowhead)"/>
-					<text x="250" y="22" fontSize="11" fill="black">Yes</text>
+					<text x="240" y="38" fontSize="11" fill="black">Yes</text>
 
 					{/* PlaceWorms -> Cursor */}
 					<path d="M 453.14 26.43 L 484 26.43 Q 494 26.43 494 36.43 L 494 147.26" fill="none" stroke="#000000" strokeMiterlimit="10" marker-end="url(#arrowhead)"/>
