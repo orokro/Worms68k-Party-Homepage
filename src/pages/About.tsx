@@ -28,7 +28,9 @@ const Sidebar = styled.nav<{ isOpen: boolean }>`
 	border-radius: 12px;
 	padding: 20px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-
+	background: rgba(30, 30, 30, 0.7);
+	backdrop-filter: blur(5px);
+	
 	@media (max-width: 900px) {
 		position: fixed;
 		top: 0;
@@ -96,8 +98,9 @@ const CodeBox = styled.div`
 const MainColumn = styled.div`
 	flex: 1;
 	max-width: 850px;
-	background: var(--bg-lighter);
-	border: none;
+	background: rgba(30, 30, 30, 0.7);
+	backdrop-filter: blur(5px);
+	/* border: 1px solid rgba(255, 255, 255, 0.1); */
 	border-radius: 12px;
 	padding: 40px;
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);

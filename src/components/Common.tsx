@@ -1,18 +1,21 @@
 import styled from 'styled-components';
 
 export const ContentBox = styled.div`
-	background-color: var(--bg-lighter);
-	border: none;
+	background-color: rgba(30, 30, 30, 0.7); /* Slightly transparent version of --bg-lighter */
+	backdrop-filter: blur(10px);
+	/* border: 1px solid rgba(255, 255, 255, 0.1); */
 	border-radius: 12px;
 	margin-bottom: 30px;
 	overflow: hidden;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+	background: rgba(30, 30, 30, 0.7);
+	backdrop-filter: blur(5px);
 `;
 
 export const BoxHeader = styled.div`
-	background-color: #2a2a2a;
+	background-color: rgba(42, 42, 42, 0.8);
 	padding: 15px 20px;
-	border-bottom: none;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 	font-weight: bold;
 	color: var(--primary);
 	display: flex;

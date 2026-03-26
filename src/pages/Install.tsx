@@ -94,7 +94,7 @@ const Install = () => {
 						</li>
 					</LinkList>
 
-					<div style={{ marginTop: '20px', padding: '15px', background: '#222', borderRadius: '4px' }}>
+					<div style={{ marginTop: '20px', padding: '15px', background: 'rgba(0,0,0,0.3)', borderRadius: '4px', border: '1px solid rgba(255,255,255,0.05)' }}>
 						<h4 style={{ margin: '0 0 10px 0' }}>💡 Pro Tip: Emulation</h4>
 						<p style={{ margin: 0, fontSize: '0.9rem' }}>
 							If you don't have a physical calculator, you can run Worms68k Party in an emulator like <a href="https://www.ticalc.org/archives/files/fileinfo/84/8442.html" target="_blank" rel="noopener noreferrer">Virtual TI</a> or <a href="https://sourceforge.net/projects/gtktiemu/" target="_blank" rel="noopener noreferrer">TiEmu</a>. Simply load a TI-89 ROM and drag the game files into the emulator window.

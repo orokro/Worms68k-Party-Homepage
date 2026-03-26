@@ -15,6 +15,8 @@ export const GlobalStyles = createGlobalStyle`
 		margin: 0;
 		padding: 0;
 		background-color: var(--bg-dark);
+		background-image: url('./img/bg.png');
+		background-repeat: repeat;
 		color: var(--text);
 		font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 		line-height: 1.6;
