@@ -82,6 +82,18 @@ const GithubLinkContainer = styled.div`
 	align-items: center;
 `;
 
+const GMLinkContainer = styled.div`
+	position: absolute;
+	/* Mirror of GithubLinkContainer: (0, 0) to (202, 155) out of 1202x454 */
+	left: 0;
+	top: ${(0 / 454) * 100}%;
+	width: ${((1202 - 1000) / 1202) * 100}%;
+	height: ${(155 / 454) * 100}%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
+
 const GithubIconLink = styled.a`
 	color: #fff;
 	display: flex;
@@ -100,7 +112,7 @@ const GithubIconLink = styled.a`
 	}
 
 	@media (max-width: 768px) {
-		svg {
+		svg, img {
 			width: 18px;
 			height: 18px;
 		}
@@ -113,6 +125,16 @@ const GithubIconLink = styled.a`
 const Header = () => {
 	return (
 		<HeaderWrapper>
+			<GMLinkContainer>
+				<GithubIconLink 
+					href="https://gregmiller.online/" 
+					target="_blank" 
+					rel="noopener noreferrer"
+				>
+					<img src="./img/gm_icon.png" alt="GM Icon" width={24} height={24} />
+					<span>About Me</span>
+				</GithubIconLink>
+			</GMLinkContainer>
 			<NavLinks>
 				<HeaderLink to="/">Home</HeaderLink>
 				<HeaderLink to="/install">Install</HeaderLink>
