@@ -99,13 +99,26 @@ const Install = () => {
 				<BoxContent>
 					<p>If you aren't on Windows, you can use the excellent open-source <strong>TILP</strong> (TI Linking Program) to transfer files.</p>
 					<p>TILP is a cross-platform linking program that supports almost all TI calculators and link cables.</p>
-					
+					<p>You can find it's main pages here:</p>
 					<LinkList>
 						<li>
-							<a href="http://lpg.ticalc.org/prj_tilp/index.html" target="_blank" rel="noopener noreferrer">
-								Official TILP Website
+							<a href="https://github.com/debrouxl/tilibs" target="_blank" rel="noopener noreferrer">
+								Official `tilibs` GitHub
 							</a>
 						</li>
+						<li>
+							<a href="https://github.com/debrouxl/tilp_and_gfm" target="_blank" rel="noopener noreferrer">
+								Official `tilp_and_gfm` GitHub
+							</a>
+						</li>
+					</LinkList>
+					<p>
+						Or, if you prefer, you can use the web-based version of TILP, which runs directly in your browser and supports file transfers over USB (with WebUSB):
+					</p>
+					<LinkList>
+						<a href="https://tiplanet.org/scripts/webtilibs/webtilp.html" target="_blank" rel="noopener noreferrer">
+							WebTILP Site
+						</a>
 					</LinkList>
 
 					<div style={{ marginTop: '20px', padding: '15px', background: 'rgba(0,0,0,0.3)', borderRadius: '4px', border: '1px solid rgba(255,255,255,0.05)' }}>
