@@ -26,14 +26,13 @@ const Sidebar = styled.nav<{ isOpen: boolean }>`
 	overflow-y: auto;
 	background: rgba(30, 30, 30, 0.7);
 	backdrop-filter: blur(10px);
-	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: 12px;
 	padding: 20px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 
 	background: rgba(30, 30, 30, 0.7);
 	backdrop-filter: blur(5px);
-	
+
 	@media (max-width: 900px) {
 		position: fixed;
 		top: 0;
@@ -103,7 +102,6 @@ const MainColumn = styled.div`
 	max-width: 850px;
 	background: rgba(30, 30, 30, 0.7);
 	backdrop-filter: blur(10px);
-	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: 12px;
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 	overflow: hidden;
